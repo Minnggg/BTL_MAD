@@ -60,11 +60,17 @@ public class QuanLyPhongActivity extends AppCompatActivity {
         btnThemPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PhongModel phong = new PhongModel(edTenPhong.getText().toString().trim(),edMoTaPhong.getText().toString().trim());
-                mDBHlperPhong.addPhong(phong);
-                mList.add(phong);
-                lammoi();
-                Toast.makeText(QuanLyPhongActivity.this, "Đã thêm", Toast.LENGTH_SHORT).show();
+
+                if(edTenPhong.getText().toString().trim().length()!=0&&edMoTaPhong.getText().toString().trim().length()!=0)
+                {
+                    PhongModel phong = new PhongModel(edTenPhong.getText().toString().trim(),edMoTaPhong.getText().toString().trim());
+                    mDBHlperPhong.addPhong(phong);
+                    mList.add(phong);
+                    lammoi();
+                    Toast.makeText(QuanLyPhongActivity.this, "Đã thêm", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(QuanLyPhongActivity.this, "Nhập đủ thông tin phòng cần thêm", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -80,19 +86,28 @@ public class QuanLyPhongActivity extends AppCompatActivity {
         btnXoaPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDBHlperPhong.deletePhong(vitri);
-                lammoi();
-                Toast.makeText(QuanLyPhongActivity.this, "Đã xóa", Toast.LENGTH_SHORT).show();
+
+                if(edTenPhong.getText().toString().trim().length()!=0&&edMoTaPhong.getText().toString().trim().length()!=0)
+                {
+                    mDBHlperPhong.deletePhong(vitri);
+                    lammoi();
+                    Toast.makeText(QuanLyPhongActivity.this, "Đã xóa", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(QuanLyPhongActivity.this, "Chọn phòng cần xóa", Toast.LENGTH_SHORT).show();
             }
         });
 
         btnSuaPhong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PhongModel phongModel =  new PhongModel(edTenPhong.getText().toString(),edMoTaPhong.getText().toString());
-                mDBHlperPhong.updatePhong(vitri,phongModel);
-                lammoi();
-                Toast.makeText(QuanLyPhongActivity.this, "Sửa phòng thành Công", Toast.LENGTH_SHORT).show();
+                if(edTenPhong.getText().toString().trim().length()!=0&&edMoTaPhong.getText().toString().trim().length()!=0)
+                {
+                    PhongModel phongModel =  new PhongModel(edTenPhong.getText().toString(),edMoTaPhong.getText().toString());
+                    mDBHlperPhong.updatePhong(vitri,phongModel);
+                    lammoi();
+                    Toast.makeText(QuanLyPhongActivity.this, "Sửa phòng thành Công", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(QuanLyPhongActivity.this, "Chọn phòng cần sửa", Toast.LENGTH_SHORT).show();
             }
         });
 

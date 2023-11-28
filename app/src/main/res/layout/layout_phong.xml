@@ -4,22 +4,49 @@
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvTenPhong"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginRight="42dp"
+            android:textStyle="bold"
+            android:text="Tên phòng:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvTenPhong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:text="1"/>
-    <TextView
-        android:id="@+id/tvMoTaPhong"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="1"/>
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginRight="20dp"
+            android:textStyle="bold"
+            android:text="Mô tả phòng:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvMoTaPhong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+
+            android:text="1"/>
+    </LinearLayout>
+
+
+
 </LinearLayout>

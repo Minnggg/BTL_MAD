@@ -47,7 +47,24 @@ public class TaiSanAdapter extends BaseAdapter {
         TextView tvLoaiTaiSan = view.findViewById(R.id.tvLoaiTaiSan1);
         tvLoaiTaiSan.setText("Loại tài sản: "+mlist.get(i).getLoai_TaiSan().toString());
         TextView tvViTriTaiSan = view.findViewById(R.id.tvViTriTaiSan1);
-        tvViTriTaiSan.setText("Vị trí tài sản: "+mlist.get(i).getViTri_TaiSan().toString());
+
+
+
+
+
+        DBHelperPhong mDBHlperPhong;
+        mDBHlperPhong = new DBHelperPhong(view.getContext());
+        ArrayList<PhongModel> mlistPhong = mDBHlperPhong.getAllPhong();
+        int vitritaisan = Integer.parseInt(mlist.get(i).getViTri_TaiSan());
+        int pos=0;
+        for(PhongModel phong : mlistPhong){
+            pos++;
+            if(phong.ID_Phong == vitritaisan) {
+                tvViTriTaiSan.setText("Vị trí tài sản: "+phong.getTen_Phong().toString());
+                break;
+            }
+        }
+
         TextView tvGiaTriTaiSan = view.findViewById(R.id.tvGiaTriTaiSan1);
         tvGiaTriTaiSan.setText("Giá trị tài sản: "+String.valueOf(mlist.get(i).getGiaTri_TaiSan()));
         return view;

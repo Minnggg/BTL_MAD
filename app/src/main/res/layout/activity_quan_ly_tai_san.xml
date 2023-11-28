@@ -29,31 +29,61 @@
         android:orientation="vertical"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/lvTaiSan">
-        <EditText
-            android:id="@+id/tvTen"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tên tài sản"/>
-        <EditText
-            android:id="@+id/tvLoai"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên tài sản "/>
+            <EditText
+                android:id="@+id/tvTen"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:hint="Tên tài sản"/>
 
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Loại tài sản"/>
-        <EditText
-            android:id="@+id/tvViTri"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loại tài sản "/>
+            <EditText
+                android:id="@+id/tvLoai"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Loại tài sản"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Vị trí tài sản"/>
-        <Spinner
-            android:id="@+id/spiner"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vị trí tài sản "/>
+            <Spinner
+                android:id="@+id/spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/tvGiaTri"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Giá trị tài sản"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá trị tài sản "/>
+            <EditText
+                android:id="@+id/tvGiaTri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Giá trị tài sản"/>
+        </LinearLayout>
+
         <LinearLayout
             android:gravity="center"
             android:weightSum="3"

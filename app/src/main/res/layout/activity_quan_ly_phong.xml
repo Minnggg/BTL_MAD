@@ -15,6 +15,39 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID Phòng:"
+        app:layout_constraintTop_toTopOf="@id/ed_idphong"
+        app:layout_constraintBottom_toBottomOf="@id/ed_idphong"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"/>
+
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên Phòng:"
+        app:layout_constraintTop_toTopOf="@id/edTenPhong"
+        app:layout_constraintBottom_toBottomOf="@id/edTenPhong"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"/>
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mô tả Phòng:"
+        app:layout_constraintTop_toTopOf="@id/edMoTaPhong"
+        app:layout_constraintBottom_toBottomOf="@id/edMoTaPhong"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"/>
+
     <ListView
 
         android:id="@+id/lv_phong"
@@ -26,30 +59,35 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <EditText
+        android:layout_marginRight="10dp"
         android:hint="Id phòng :"
         android:layout_marginTop="10dp"
         android:id="@+id/ed_idphong"
         app:layout_constraintTop_toBottomOf="@id/lv_phong"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_width="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"/>
 
 
     <EditText
+        android:layout_marginRight="10dp"
         android:hint="Tên Phòng:"
         android:id="@+id/edTenPhong"
         app:layout_constraintTop_toBottomOf="@id/ed_idphong"
         android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         />
 
     <EditText
+        android:layout_marginRight="10dp"
         android:hint="Mô tả phòng"
         android:id="@+id/edMoTaPhong"
         app:layout_constraintTop_toBottomOf="@id/edTenPhong"
         android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         />
     <Button

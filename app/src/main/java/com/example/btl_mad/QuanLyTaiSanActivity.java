@@ -25,7 +25,7 @@ public class QuanLyTaiSanActivity extends AppCompatActivity {
     ListView hienthi;
     DBHelperTaiSan mDBHelperTaiSan;
     ArrayList<TaiSanModel> mList;
-    EditText edTen,edLoai,edViTri,edGiaTri;
+    EditText edTen,edLoai,edGiaTri;
     Button btnThem,btnSua,btnXoa;
     int diachido;
     int vitri;
@@ -45,7 +45,6 @@ public class QuanLyTaiSanActivity extends AppCompatActivity {
         btnXoa= findViewById(R.id.btnXoa);
         edTen = findViewById(R.id.tvTen);
         edLoai = findViewById(R.id.tvLoai);
-        edViTri = findViewById(R.id.tvViTri);
         edGiaTri = findViewById(R.id.tvGiaTri);
 
         mDBHlperPhong = new DBHelperPhong(this);
@@ -66,42 +65,68 @@ public class QuanLyTaiSanActivity extends AppCompatActivity {
             }
         });
 
-
         hienthi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 edTen.setText(mList.get(i).getTen_TaiSan().toString());
                 edLoai.setText(mList.get(i).getLoai_TaiSan().toString());
-                edViTri.setText(mList.get(i).getViTri_TaiSan().toString());
                 edGiaTri.setText(String.valueOf(mList.get(i).getGiaTri_TaiSan()));
                 vitri = mList.get(i).getID_TaiSan();
-                Log.d("TAG", "onItemClick:1 "+ vitri);
+                int vitritaisan = Integer.parseInt(mList.get(i).getViTri_TaiSan());
+                int pos=0;
+                for(PhongModel phong : mlistPhong){
+                    pos++;
+                    if(phong.ID_Phong == vitritaisan) {
+                        break;
+                    }
+                }
+                spinner.setSelection(pos-1);
             }
         });
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TaiSanModel taiSanModel = new TaiSanModel(edTen.getText().toString(),edLoai.getText().toString(),diachido+"",Integer.parseInt(edGiaTri.getText().toString()));
-                mDBHelperTaiSan.updateTaiSan(vitri,taiSanModel);
-                capnhat();
-                Toast.makeText(QuanLyTaiSanActivity.this, "Đã sửa", Toast.LENGTH_SHORT).show();
+                if(edTen.getText().toString().trim().length()!=0&&edLoai.getText().toString().trim().length()!=0&&edGiaTri.getText().toString().trim().length()!=0)
+                {
+                    TaiSanModel taiSanModel = new TaiSanModel(edTen.getText().toString(),edLoai.getText().toString(),diachido+"",Integer.parseInt(edGiaTri.getText().toString()));
+                    mDBHelperTaiSan.updateTaiSan(vitri,taiSanModel);
+                    capnhat();
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Đã sửa", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Chọn tài sản cần sửa", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TaiSanModel taiSanModel = new TaiSanModel(edTen.getText().toString(),edLoai.getText().toString(),diachido+"",Integer.parseInt(edGiaTri.getText().toString()));
-                mDBHelperTaiSan.addTaiSan(taiSanModel);
-                capnhat();
+
+                if(edTen.getText().toString().trim().length()!=0&&edLoai.getText().toString().trim().length()!=0&&edGiaTri.getText().toString().trim().length()!=0)
+                {
+                    TaiSanModel taiSanModel = new TaiSanModel(edTen.getText().toString(),edLoai.getText().toString(),diachido+"",Integer.parseInt(edGiaTri.getText().toString()));
+                    mDBHelperTaiSan.addTaiSan(taiSanModel);
+                    capnhat();
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Đã cập nhật", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Hãy nhập đủ thông tin tài sản", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
         btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mDBHelperTaiSan.deleteTaiSan(vitri);
-                capnhat();
-                Toast.makeText(QuanLyTaiSanActivity.this, "Đã xóa", Toast.LENGTH_SHORT).show();
+                if(edTen.getText().toString().trim().length()!=0&&edLoai.getText().toString().trim().length()!=0&&edGiaTri.getText().toString().trim().length()!=0)
+                {
+                    mDBHelperTaiSan.deleteTaiSan(vitri);
+                    capnhat();
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Đã xóa", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(QuanLyTaiSanActivity.this, "Chọn tài sản cần xóa", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
