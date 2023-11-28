@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/BtnQLPhong"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Quản lý phòng" />
+
+    <Button
+        android:id="@+id/BtnQLTaiSan"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Quản lý tài sản" />
+
+    <Button
+        android:id="@+id/BtnHienThiPhong"
+        android:layout_marginTop="50dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Liệt tài sản có trong 1 phòng"/>
+    <Button
+        android:id="@+id/BtnHienThiTaiSan"
+        android:layout_marginTop="50dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Hiển thị các tài sản có trên 10 triệu đồng"/>
+
+
+</LinearLayout>
